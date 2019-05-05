@@ -1,0 +1,129 @@
+// Variables
+$color-2: white;
+/* ---------- */
+/* Navegación */
+/* ---------- */
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $headerHeight;
+    z-index: 99;
+
+    .contenedor{
+        height: inherit;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    
+}
+
+.menu-contenedor{
+
+    nav{
+        position: absolute;
+        top: $headerHeight;
+        // right: 0;
+        &::before{
+            content: "";
+            height: 100%;
+            width: 4px;
+            background-color: white;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        ul.top-menu{
+            margin: 0;
+            display: block;
+            li{
+                list-style: none;
+
+                a{
+                    display: inline-block;
+                    color: white;
+                    font-weight: bold;
+                    text-decoration: none;
+                    padding: 10px 15px;
+                    margin-top: 20px;
+
+                   
+                }
+            }
+
+        }
+    }
+
+    // ---------------------------
+    // SVG Menu Icon
+    // ---------------------------
+    span.barra-menu {
+        display: block;
+        width: 50px;
+        height: 60px;
+    }
+
+    .menuicon {
+        display: block;
+        cursor: pointer;
+        color: $color-2;
+        transform: rotate(0deg);
+        $hMenuIcon: 45;
+        height: #{$hMenuIcon}px;
+        width: #{$hMenuIcon}px;
+        position: relative;
+        border-radius: 50%;
+        top: #{68/2 - $hMenuIcon/2}px;
+        transition: .3s cubic-bezier(0.165, 0.840, 0.440, 1.000);
+
+        &__bar,
+        &__circle {
+            fill: none;
+            stroke: $color-2;
+            stroke-width: 3;
+            stroke-linecap: round;
+        }
+
+        &__bar {
+            transform: rotate(0deg);
+            transform-origin: 50% 50%;
+            transition: transform .25s ease-in-out;
+        }
+
+        &__circle {
+            transition: stroke-dashoffset .3s linear .1s;
+            stroke-dashoffset: circumference(23); // 23 is the <circle>'s radius
+            stroke-dasharray: circumference(23);
+        }
+    }
+
+    &.open{
+        .menuicon {
+            color: white;
+            transform: rotate(180deg);
+
+            &__circle {
+                stroke-dashoffset: 0;
+            }
+
+            &__bar:nth-child(1),
+            &__bar:nth-child(4) {
+                opacity: 0;
+            }
+
+            &__bar:nth-child(2) {
+                transform: rotate(45deg);
+            }
+
+            &__bar:nth-child(3) {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+}

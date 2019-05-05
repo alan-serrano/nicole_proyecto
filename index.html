@@ -4,9 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Nicole</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href="css/plugins/roundslider.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
-    
+    <header>
+        <div class="contenedor menu-contenedor">
+            <div class="logo">
+                <i class="fab fa-ravelry"></i>
+            </div>
+
+            <nav>
+                <ul class="top-menu">
+                    <li class="menu-item has-children">
+                        <a class="menu-link" href="#">Servicios</a>
+                        
+                    </li>
+                    <li><a class="menu-link" href="#">Contactos</a></li>
+                    <li><a class="menu-link" href="#">Proyectos</a></li>
+                </ul>
+            </nav>
+            <span class="barra-menu">
+                <svg class="menuicon" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+                    <title>Toggle Menu</title>
+                    <g>
+                        <line class="menuicon__bar" x1="13" y1="16.5" x2="37" y2="16.5"></line>
+                        <line class="menuicon__bar" x1="13" y1="24.5" x2="37" y2="24.5"></line>
+                        <line class="menuicon__bar" x1="13" y1="24.5" x2="37" y2="24.5"></line>
+                        <line class="menuicon__bar" x1="13" y1="32.5" x2="37" y2="32.5"></line>
+                        <circle fill="none" stroke="red" class="menuicon__circle" r="23" cx="25" cy="25"></circle>
+                    </g>
+                </svg>
+            </span>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="contenedor">
+            <img src="img/img-01.jpg" alt="">
+            <img src="img/img-02.jpg" alt="">
+            <img src="img/img-03.jpg" alt="">
+            <img src="img/img-01.jpg" alt="">
+            <div id="slider"></div>
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="js/plugins/roundslider.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
