@@ -16,7 +16,7 @@ header{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 80%;
+        width: 80vw;
         margin: 0 auto;
     }
 
@@ -28,7 +28,24 @@ header{
     nav{
         position: absolute;
         top: $headerHeight;
-        // right: 0;
+        right: calc(10vw + 25px);
+        
+
+        @media only screen and (min-width: 1462.5px){
+            right: calc((100vw - 1170px) / 2 + 25px);
+        }
+        
+
+    }
+
+    ul.top-menu{
+        height: 0;
+        overflow: hidden;
+        opacity: 0;
+        margin: 0;
+        display: block;
+        transition: all 1s ease;
+
         &::before{
             content: "";
             height: 100%;
@@ -38,26 +55,24 @@ header{
             top: 0;
             right: 0;
         }
+        
+        li{
+            list-style: none;
 
-        ul.top-menu{
-            margin: 0;
-            display: block;
-            li{
-                list-style: none;
+            a{
+                display: inline-block;
+                color: white;
+                font-weight: bold;
+                text-decoration: none;
+                padding: 10px 15px;
+                margin-top: 20px;
+                &::after{
 
-                a{
-                    display: inline-block;
-                    color: white;
-                    font-weight: bold;
-                    text-decoration: none;
-                    padding: 10px 15px;
-                    margin-top: 20px;
-
-                   
                 }
+                
             }
-
         }
+
     }
 
     // ---------------------------
@@ -103,27 +118,33 @@ header{
         }
     }
 
-    &.open{
-        .menuicon {
-            color: white;
-            transform: rotate(180deg);
+&.open{
+    ul.top-menu{
+        height: auto;
+        opacity: 1;
 
-            &__circle {
-                stroke-dashoffset: 0;
-            }
+    }
+    .menuicon {
+        color: white;
+        transform: rotate(180deg);
 
-            &__bar:nth-child(1),
-            &__bar:nth-child(4) {
-                opacity: 0;
-            }
+        &__circle {
+            stroke-dashoffset: 0;
+        }
 
-            &__bar:nth-child(2) {
-                transform: rotate(45deg);
-            }
+        &__bar:nth-child(1),
+        &__bar:nth-child(4) {
+            opacity: 0;
+        }
 
-            &__bar:nth-child(3) {
-                transform: rotate(-45deg);
-            }
+        &__bar:nth-child(2) {
+            transform: rotate(45deg);
+        }
+
+        &__bar:nth-child(3) {
+            transform: rotate(-45deg);
         }
     }
+}
+
 }

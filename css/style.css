@@ -18,8 +18,10 @@ body {
   font-size: 16px;
 }
 
-.contenedor {
-  max-width: 1170px;
+@media only screen and (min-width: 1462.5px) {
+  .contenedor {
+    max-width: 1170px;
+  }
 }
 
 /* ---------- */
@@ -38,15 +40,29 @@ header .contenedor {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
+  width: 80vw;
   margin: 0 auto;
 }
 
 .menu-contenedor nav {
   position: absolute;
   top: 80px;
+  right: calc(10vw + 25px);
 }
-.menu-contenedor nav::before {
+@media only screen and (min-width: 1462.5px) {
+  .menu-contenedor nav {
+    right: calc((100vw - 1170px) / 2 + 25px);
+  }
+}
+.menu-contenedor ul.top-menu {
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
+  margin: 0;
+  display: block;
+  transition: all 1s ease;
+}
+.menu-contenedor ul.top-menu::before {
   content: "";
   height: 100%;
   width: 4px;
@@ -55,14 +71,10 @@ header .contenedor {
   top: 0;
   right: 0;
 }
-.menu-contenedor nav ul.top-menu {
-  margin: 0;
-  display: block;
-}
-.menu-contenedor nav ul.top-menu li {
+.menu-contenedor ul.top-menu li {
   list-style: none;
 }
-.menu-contenedor nav ul.top-menu li a {
+.menu-contenedor ul.top-menu li a {
   display: inline-block;
   color: white;
   font-weight: bold;
@@ -103,6 +115,10 @@ header .contenedor {
   stroke-dashoffset: circumference(23);
   stroke-dasharray: circumference(23);
 }
+.menu-contenedor.open ul.top-menu {
+  height: auto;
+  opacity: 1;
+}
 .menu-contenedor.open .menuicon {
   color: white;
   transform: rotate(180deg);
@@ -130,6 +146,8 @@ section.hero .contenedor {
   max-width: none;
   width: 400vw;
   display: flex;
+  position: relative;
+  animation: slider 20s infinite;
 }
 section.hero .contenedor img {
   width: 100vw;
@@ -140,7 +158,7 @@ section.hero .contenedor img {
 /* Plugin */
 /* ------------- */
 #slider {
-  position: absolute;
+  position: fixed;
   display: flex;
   top: 0;
   justify-content: center;
@@ -186,6 +204,45 @@ section.hero .contenedor img {
   margin: 0 auto;
   width: 100%;
   height: 100%;
+}
+
+/* ------------------*/
+/* Slider */
+/* ------------------*/
+@keyframes slider {
+  0% {
+    left: 0;
+  }
+  25% {
+    left: -100vw;
+  }
+  50% {
+    left: -200vw;
+  }
+  75% {
+    left: -300vw;
+  }
+}
+/* ------------------*/
+/* Sección Servicios */
+/* ------------------*/
+.servicios {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  background: #252525;
+  height: 0;
+  transform: translateY(100vh);
+  transition: all 0.5s ease;
+}
+
+.servicios.open {
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  background: #252525;
+  height: 100vh;
+  transform: translateY(0);
 }
 
 /*# sourceMappingURL=style.css.map */

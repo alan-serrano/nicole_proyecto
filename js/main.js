@@ -155,9 +155,19 @@ document.addEventListener("DOMContentLoaded", function () {
     // Variables
     var menuIcon = document.getElementsByClassName("barra-menu")[0];
     var menuContenedor = document.getElementsByClassName("menu-contenedor")[0];
+    var linkServicios = document.getElementById("link-servicios");
+    var seccionServicios = document.getElementById("seccion-servicios");
 
     menuIcon.addEventListener("click", function () {
         menuContenedor.classList.toggle("open");
+        if (condition) {
+            
+        }
+    })
+
+    
+    linkServicios.addEventListener("click", () =>{
+        seccionServicios.classList.toggle("open");
     })
 
 })

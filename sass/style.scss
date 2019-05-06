@@ -22,7 +22,10 @@ body{
 }
 
 .contenedor{
-    max-width: 1170px;
+    @media only screen and (min-width: 1462.5px){
+        max-width: 1170px;
+    }
+    
 }
 
 @import "menu";
@@ -37,6 +40,8 @@ section.hero{
         max-width: none;
         width: 400vw;
         display: flex;
+        position: relative;
+        animation: slider 20s infinite;
 
         img{
             width: 100vw;
@@ -56,7 +61,7 @@ section.hero{
     /* Plugin */
     /* ------------- */
     #slider{
-        position: absolute;
+        position: fixed;
         display: flex;
         top: 0;
         justify-content: center;
@@ -111,5 +116,51 @@ section.hero{
         width: 100%;
         height: 100%;
     }
+
+    /* ------------------*/
+    /* Slider */
+    /* ------------------*/
+    
+    @keyframes slider{
+        0%{
+            left: 0;
+        }
+
+        25%{
+            left: -100vw;
+        }
+
+        50%{
+            left: -200vw;
+        }
+
+        75%{
+            left: -300vw;
+        }
+    }
+    
+    /* ------------------*/
+    /* Sección Servicios */
+    /* ------------------*/
+    .servicios{
+        position: absolute;
+        top: 0;
+        width: 100vw;
+        background: #252525;
+        height: 0;
+        transform: translateY(100vh);
+        transition: all .5s ease;
+    }
+
+    .servicios.open{
+        position: absolute;
+        top: 0;
+        width: 100vw;
+        background: #252525;
+        height: 100vh;
+        transform: translateY(0);
+    }
+
+
 
     
